@@ -1,0 +1,41 @@
+
+{% include 'header.html' %}  
+
+<br/>
+<a href="{{url_for('create')}}" class="btn btn-success">Ingresar Nuevo Alumno</a>
+<br>
+<br>
+    <table class="table table-light">
+        <thead class="thead-light">
+            <tr>
+                <th>#</th>
+                <th>foto</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Telefono</th>
+                <th>Acciones</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            {% for alumnos  in alumnos  %}
+            <tr>
+                <td>{{alumnos[0]}}</td>
+                <td>
+                    <img class="img-thumbail" width="100" src="uploads/{{alumnos[4]}}" alt="">     
+                
+                </td>
+                <td>{{alumnos[1]}}</td>
+                <td>{{alumnos[2]}}</td>
+                <td>{{alumnos[3]}}</td>
+                <td> <a class="btn btn-warning" href="/edit/{{alumnos[0]}}">Editar</a> |
+                    <a onclick="return confirm('¿Desea borrar el registro?')" class="btn btn-danger" href="/destroy/{{alumnos[0]}}">Eliminar</a>
+                    </td>
+            </tr>
+             
+            {% endfor %}
+            
+        </tbody>
+    </table>
+
+{% include 'footer.html' %}

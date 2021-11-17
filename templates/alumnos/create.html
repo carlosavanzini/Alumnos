@@ -1,0 +1,47 @@
+{% include 'header.html' %} 
+
+<br>
+<br>
+<form method="post" action="/store" enctype="multipart/form-data"><!--/store significa que todo lo que se envia se envia a esta ruta-->
+
+    <div class="card">
+        <div class="card-header">
+            Ingresar Alumnos
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Datos del alumno</h5>
+            <p class="card-text">
+                <div class="form-group">
+                  <label for="nombre">Nombre:</label>
+                  <input type="text" name="nombre" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                 
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Correo:</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="" aria-describedby="helpId">
+                   
+                  </div>
+
+                  <div class="form-group">
+                    <label for="telefono">Telefono:</label>
+                    <input type="number" name="telefono" id="telefono" class="form-control" placeholder="" aria-describedby="helpId">
+                   
+                  </div>
+                
+                  <div class="form-group">
+                    <label for="Foto">Foto:</label>
+                    <input type="file" name="foto" id="foto" class="form-control" placeholder="" aria-describedby="helpId">
+               
+                  </div>
+
+                  <div class="form-group">
+                    <input type="submit" class="btn btn-success" value="Agregar">
+                    <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
+                  </div>
+               
+            </p>
+        </div>
+    </div>
+</form>
+{% include 'footer.html' %}
