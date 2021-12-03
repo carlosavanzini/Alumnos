@@ -64,15 +64,15 @@ def edit(id):
 
 @app.route('/update',methods=['POST'])
 def update():
-
+    _escuela=request.form['escuela']
     _nombre=request.form['nombre']
     _correo=request.form['email']
     _telefono=request.form['telefono']
     _foto=request.files['foto']
     id=request.form['txtid']
-    sql="UPDATE alumnos SET nombre=%s, correo=%s, telefono=%s WHERE id=%s;"
+    sql="UPDATE alumnos SET escuela=%s, nombre=%s, correo=%s, telefono=%s WHERE id=%s;"
 
-    datos=(_nombre,_correo,_telefono,id)
+    datos=(_escuela,_nombre,_correo,_telefono,id)
     
     conn=mysql.connect()
     cursor=conn.cursor()
@@ -102,7 +102,7 @@ def create():
 
 @app.route('/store', methods=['POST'])
 def storage():
-
+    _escuela=request.form['escuela']
     _nombre=request.form['nombre']
     _correo=request.form['email']
     _telefono=request.form['telefono']
@@ -117,9 +117,9 @@ def storage():
         nuevoNombreFoto=tiempo+_foto.filename
         _foto.save("uploads/" + nuevoNombreFoto)
 
-    sql="INSERT INTO `alumnos` (`id`, `nombre`, `correo`, `telefono`, `foto`) VALUES (NULL,%s,%s,%s,%s);"
+    sql="INSERT INTO `alumnos` (`id`,`escuela`, `nombre`, `correo`, `telefono`, `foto`) VALUES (NULL,%s,%s,%s,%s,%s);"
 
-    datos=(_nombre,_correo,_telefono,nuevoNombreFoto)
+    datos=(_escuela,_nombre,_correo,_telefono,nuevoNombreFoto)
     conn=mysql.connect()
     cursor=conn.cursor()
     cursor.execute(sql,datos)

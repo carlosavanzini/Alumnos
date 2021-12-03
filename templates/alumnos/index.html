@@ -9,6 +9,7 @@
         <thead class="thead-light">
             <tr>
                 <th>#</th>
+                <th>Escuela</th>
                 <th>foto</th>
                 <th>Nombre</th>
                 <th>Correo</th>
@@ -21,13 +22,15 @@
             {% for alumnos  in alumnos  %}
             <tr>
                 <td>{{alumnos[0]}}</td>
+                <td>{{alumnos[1]}}</td>
                 <td>
-                    <img class="img-thumbail" width="100" src="uploads/{{alumnos[4]}}" alt="">     
+                    <img class="img-thumbail" width="100" src="uploads/{{alumnos[5]}}" alt="">     
                 
                 </td>
-                <td>{{alumnos[1]}}</td>
+                
                 <td>{{alumnos[2]}}</td>
                 <td>{{alumnos[3]}}</td>
+                <td>{{alumnos[4]}}</td>
                 <td> <a class="btn btn-warning" href="/edit/{{alumnos[0]}}">Editar</a> |
                     <a onclick="return confirm('¿Desea borrar el registro?')" class="btn btn-danger" href="/destroy/{{alumnos[0]}}">Eliminar</a>
                     </td>
